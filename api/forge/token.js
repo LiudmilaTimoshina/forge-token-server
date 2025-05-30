@@ -1,9 +1,6 @@
-const fetch = require('node-fetch');
-
-module.exports = async (req, res) => {
+export default async function handler(req, res) {
   if (req.method !== 'GET') {
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   try {
@@ -20,6 +17,7 @@ module.exports = async (req, res) => {
     });
 
     const data = await response.json();
+
     if (data.access_token) {
       res.status(200).json({ access_token: data.access_token });
     } else {
@@ -28,4 +26,4 @@ module.exports = async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: 'Failed to fetch token', details: err.message });
   }
-};
+}
