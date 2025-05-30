@@ -34,8 +34,8 @@ export default async function handler(req, res) {
 
         console.log('Making request to Autodesk API...');
 
-        // Запрашиваем токен у Autodesk
-        const response = await fetch('https://developer.api.autodesk.com/authentication/v1/authenticate', {
+        // ✅ ПРАВИЛЬНЫЙ URL для APS (новый API)
+        const response = await fetch('https://developer.api.autodesk.com/authentication/v2/token', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
