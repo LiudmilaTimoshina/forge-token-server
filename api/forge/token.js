@@ -30,11 +30,11 @@ export default async function handler(req, res) {
         tokenParams.append('client_id', clientId);
         tokenParams.append('client_secret', clientSecret);
         tokenParams.append('grant_type', 'client_credentials');
-        tokenParams.append('scope', 'viewables:read');
+        tokenParams.append('scope', 'data:read data:write data:create bucket:create bucket:read');
 
         console.log('Making request to Autodesk API...');
 
-        // ✅ ПРАВИЛЬНЫЙ URL для APS (новый API)
+        // URL для APS (новый API)
         const response = await fetch('https://developer.api.autodesk.com/authentication/v2/token', {
             method: 'POST',
             headers: {
