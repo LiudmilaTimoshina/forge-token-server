@@ -30,7 +30,7 @@ export default async function handler(req, res) {
         tokenParams.append('client_id', clientId);
         tokenParams.append('client_secret', clientSecret);
         tokenParams.append('grant_type', 'client_credentials');
-        tokenParams.append('scope', 'data:read data:write data:create bucket:create bucket:read');
+        tokenParams.append('scope', 'data:read data:write data:create bucket:create bucket:read bucket:delete');
 
         console.log('Making request to Autodesk API...');
 
